@@ -1,9 +1,6 @@
 pipeline {
     agent any
  
-    options {
-        skipDefaultCheckout(true)
-    }
  
     stages {
         stage('Build') {
@@ -14,7 +11,10 @@ pipeline {
         }
 	stage('Test') {
             steps {
-                echo '> Using Super linter'
+                echo '> Using ansible-lint'
+		sh 'yum install python3'
+                sh 'pip3 install "ansible-lint[yamllint]"'
+		sh 'ansible-lint'
                 
             }
         }

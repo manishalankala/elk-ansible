@@ -8,7 +8,7 @@
   ansible.posix.synchronize:
     src: ../../files/
     dest: /mnt/elk
-    recursive: yes
+    recursive: true
 
 
 - name: Tear down existing services
@@ -21,15 +21,16 @@
     project_src: /mnt/elk
   register: output
 
-- ansible.builtin.debug:
+- name: Print output
+  ansible.builtin.debug:
     var: output
 
 - name: Run `docker-compose up` again
   community.docker.docker_compose:
     project_src: /mnt/elk
-    build: no
+    build: false
   register: output
 
-- ansible.builtin.debug:
+- name: Print output
+  ansible.builtin.debug:
     var: output
-
