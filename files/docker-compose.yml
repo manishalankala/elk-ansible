@@ -136,6 +136,72 @@ services:
       - "MYSQL_ROOT_PASSWORD=Password1"
     depends_on:
       - elasticsearch
+  #Heartbeat container
+  heartbeat:
+    container_name: heartbeat
+    hostname: heartbeat
+    user: root #To read the docker socket
+    image: "docker.elastic.co/beats/heartbeat:7.13.4"
+    volumes:
+      #Mount the Heartbeat configuration so users can make edits.
+      - ./config/beats/heartbeat/heartbeat.yml:/usr/share/heartbeat/heartbeat.yml
+      #Allows us to report on docker from the hosts information.
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - elasticsearch
+    command: heartbeat -e -strict.perms=false
+    networks: ['elk']
+    restart: on-failure
+   #Packetbeat container
+  packetbeat:
+    container_name: packetbeat
+    hostname: packetbeat
+    user: root #To read the docker socket
+    image: "docker.elastic.co/beats/packetbeat:7.13.4"
+    volumes:
+      #Mount the packetbeat configuration so users can make edits.
+      - ./config/beats/packetbeat/packetbeat.yml:/usr/share/packetbeat/packetbeat.yml
+      #Allows us to report on docker from the hosts information.
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Packetbeat needs some elevated privileges to capture network traffic. We'll grant them with POSIX capabilities.
+    cap_add: ['NET_RAW', 'NET_ADMIN']
+    # Use "host mode" networking to allow Packetbeat to capture traffic from the real network interface on the host,
+    # rather than being isolated to the container's virtual interface.
+    network_mode: host
+    restart: on-failure
+    command: packetbeat -e -strict.perms=false
+    depends_on:
+      - elasticsearch
+
+  #nginx container
+  nginx:
+    container_name: nginx
+    hostname: nginx
+    build: ${PWD}/config/nginx
+    networks: ['elk']
+    #Expose port 80 to allow users to hit content and generate data for filebeat and packetbeat.
+    ports: ['80:80']
+    command: nginx -g 'daemon off;'
+    volumes:
+      #Logs are mounted to a relative path. These are also accessed by Filebeat and consumed by the Nginx module.
+      - ./logs/nginx/:/var/log/nginx/
+
+  #MySQL container
+  mysql:
+    container_name: mysql
+    hostname: mysql
+    build: ${PWD}/config/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=Password1"
+    networks: ['elk']
+    #Expose port 3306 to allow users to connect and perform operations. These will be picked up by Packetbeat, Filebeat and Metricbeat.
+    ports: ['3306:3306']
+    volumes:
+      #Use named volume so mysql data is persisted across restart.
+      - mysqldata:/var/lib/mysql/
+      #Logs are mounted to a relative path. These are also accessed by Filebeat and consumed by the MySQL module.
+      - ./logs/mysql:/var/log/mysql/
+
 
 networks:
   elk:
@@ -143,4 +209,7 @@ networks:
 
 volumes:
   elasticsearch:
+  mysqldata:
+    driver: local
   filebeatdata:
+    driver: local
