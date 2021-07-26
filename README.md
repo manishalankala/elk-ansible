@@ -57,3 +57,7 @@ sudo systemctl status jenkins
 ### Instance
 
 ![image](https://user-images.githubusercontent.com/33985509/127038871-eb1d3376-c800-439b-8659-aadc9424b365.png)
+
+### Network
+
+![image](https://user-images.githubusercontent.com/33985509/127039248-9ddfe93d-9192-4b1d-ad1c-9756e8463a29.png)
