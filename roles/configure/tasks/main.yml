@@ -3,8 +3,8 @@
     name:
       - python3
       - libssl-dev
-      - python3-devel
-      - libffi-devel
+      - python3-dev
+      - libffi-dev
     state: present
 - name: Set pip3 as default pip
   file:
