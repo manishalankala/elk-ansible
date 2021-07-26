@@ -17,5 +17,6 @@
       - docker
       - wheel
       - rust
+      - docker-compose
 - name: Install collections
   shell: ansible-galaxy collection install community.docker && ansible-galaxy collection install ansible.posix
