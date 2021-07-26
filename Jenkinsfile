@@ -12,9 +12,12 @@ pipeline {
 	stage('Test') {
             steps {
                 echo '> Using ansible-lint'
-		sh 'yum install python3'
+		sh 'apt install python3'
                 sh 'pip3 install "ansible-lint[yamllint]"'
 		sh 'ansible-lint'
+		sh 'ansible-galaxy collection install ansible.posix'
+		sh 'ansible-galaxy collection install community.docker'
+		
                 
             }
         }
