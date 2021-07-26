@@ -13,6 +13,8 @@ pipeline {
             steps {
                 echo '> Using ansible-lint'
 		sh 'apt install python3'
+		sh 'apt-get install python -y'
+		sh 'apt-get install ansible -y'
                 sh 'pip3 install "ansible-lint[yamllint]"'
 		sh 'ansible-lint'
 		sh 'ansible-galaxy collection install ansible.posix'
