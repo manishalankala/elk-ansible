@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
  
  
     stages {
@@ -12,13 +12,7 @@ pipeline {
 	stage('Test') {
             steps {
                 echo '> Using ansible-lint'
-		sh 'apt install python3'
-		sh 'apt install python -y'
-		sh 'apt install ansible -y'
-                sh 'pip3 install "ansible-lint[yamllint]"'
 		sh 'ansible-lint'
-		sh 'ansible-galaxy collection install ansible.posix'
-		sh 'ansible-galaxy collection install community.docker'
 		
                 
             }
