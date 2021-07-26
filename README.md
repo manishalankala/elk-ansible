@@ -77,6 +77,4 @@ sudo systemctl status jenkins
 ![image](https://user-images.githubusercontent.com/33985509/127040044-da29f350-1009-4e3c-9ac1-f1f3ce0a733a.png)
 
 
-
-
-sudo apt update	
+![image](https://user-images.githubusercontent.com/33985509/127040116-d6c4d1e8-4c71-4c0e-93b5-d2441c206f4a.png)
