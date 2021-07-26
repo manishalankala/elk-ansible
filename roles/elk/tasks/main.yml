@@ -4,11 +4,11 @@
     state: directory
     mode: '0755'
 
-- name: Copy over docker-compose folder
-  ansible.posix.synchronize:
-    src: ../../files/
-    dest: /mnt/elk
-    recursive: true
+#- name: Copy over docker-compose folder
+#  ansible.posix.synchronize:
+#    src: ../../files/
+#    dest: /mnt/elk
+#    recursive: true
 
 
 - name: Tear down existing services
