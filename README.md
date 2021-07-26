@@ -80,3 +80,5 @@ sudo systemctl status jenkins
 ![image](https://user-images.githubusercontent.com/33985509/127040116-d6c4d1e8-4c71-4c0e-93b5-d2441c206f4a.png)
 
 ![image](https://user-images.githubusercontent.com/33985509/127040268-f7bcf572-ca9f-4898-bb91-ab87a01fff0b.png)
+
+![image](https://user-images.githubusercontent.com/33985509/127040442-d72aa2ef-fcd4-41a8-96ad-d0adb20cbc16.png)
