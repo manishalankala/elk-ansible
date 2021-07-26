@@ -61,3 +61,6 @@ sudo systemctl status jenkins
 ### Network
 
 ![image](https://user-images.githubusercontent.com/33985509/127039248-9ddfe93d-9192-4b1d-ad1c-9756e8463a29.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/127039391-a190c8c7-9a0a-4117-8d99-5bb09c850469.png)
