@@ -1,5 +1,5 @@
 - name: Install packages
-  yum:
+  apt:
     name:
       - python3
       - libssl-dev
