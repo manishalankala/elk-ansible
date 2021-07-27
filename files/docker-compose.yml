@@ -180,7 +180,7 @@ services:
     build: ./config/nginx
     networks: ['elk']
     #Expose port 80 to allow users to hit content and generate data for filebeat and packetbeat.
-    ports: ['80:80']
+    ports: ['8084:80']
     command: nginx -g 'daemon off;'
     volumes:
       #Logs are mounted to a relative path. These are also accessed by Filebeat and consumed by the Nginx module.
