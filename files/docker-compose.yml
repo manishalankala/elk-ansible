@@ -177,7 +177,7 @@ services:
   nginx:
     container_name: nginx
     hostname: nginx
-    build: ${PWD}/config/nginx
+    build: ./config/nginx
     networks: ['elk']
     #Expose port 80 to allow users to hit content and generate data for filebeat and packetbeat.
     ports: ['80:80']
@@ -190,7 +190,7 @@ services:
   mysql:
     container_name: mysql
     hostname: mysql
-    build: ${PWD}/config/mysql
+    build: ./config/mysql
     environment:
       - "MYSQL_ROOT_PASSWORD=Password1"
     networks: ['elk']
