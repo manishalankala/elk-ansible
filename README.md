@@ -91,3 +91,17 @@ sudo systemctl status jenkins
 ![image](https://user-images.githubusercontent.com/33985509/127043384-1a7a8fe8-0240-4ee7-9133-2b3f0b1114ff.png)
 
 ![image](https://user-images.githubusercontent.com/33985509/127045765-8bff12b4-7dbf-47cc-a7c6-0b4a5257a412.png)
+
+
+![image](https://user-images.githubusercontent.com/33985509/127209077-140a0906-f895-4e68-b2f1-443d175de642.png)
+
+![image](https://user-images.githubusercontent.com/33985509/127209203-3bd78a7f-1747-4cb2-86a7-5f3cdeaa7759.png)
+
+![image](https://user-images.githubusercontent.com/33985509/127209255-6b390bc9-5b52-460e-80ba-38f242c3c528.png)
+
+![image](https://user-images.githubusercontent.com/33985509/127209320-9c6b245d-168b-4dd2-bb42-c367c0488960.png)
+
+
+
+
+![image](https://user-images.githubusercontent.com/33985509/127039815-736f0c62-09f8-4f93-9525-47dad20fd1a0.png)
